@@ -1,40 +1,4 @@
 <header class="main-header-wrapper position-relative">
-    <div class="header-top">
-      <div class="container pt--0 pb--0">
-        <div class="row">
-          <div class="col-12">
-            <div class="header-top-align">
-              <div class="header-top-align-start">
-                <div class="desc">
-                  <p>World Wide Completely Free Returns and Free Shipping</p>
-                </div>
-              </div>
-              <div class="header-top-align-end">
-                <div class="header-info-items">
-                  <div class="info-items">
-                    <ul>
-                      <li class="number"><i class="fa fa-phone"></i><a href="tel://0123456789">+00 123 456 789</a></li>
-                      <li class="email"><i class="fa fa-envelope"></i><a href="mailto://demo@example.com">demo@example.com</a></li>
-
-                      @if(Route::has('login'))
-                      @auth
-                      <li class="account"><i class="fa fa-user"></i><a href="{{url('/')}}">{{Auth::user()->name}}</a></li>
-                        @else
-                        <li class="account"><i class="fa fa-sign-in"></i><a href="{{route('login')}}">Login</a></li>
-                        @if(Route::has('register'))
-                        <li class="account"><i class="fa fa-user"></i><a href="{{route('register')}}">Register</a></li>
-                        @endif
-                       @endauth
-                       @endif
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="header-middle">
       <div class="container pt--0 pb--0">
         <div class="row align-items-center">
@@ -42,12 +6,8 @@
             <div class="header-middle-align">
               <div class="header-middle-align-start">
                 <div class="header-logo-area">
-                  <a href="index.html">
-                    <!--
-                    <img class="logo-main" src="{{asset('frontend/assets/img/logo.webp')}}" width="131" height="34" alt="Logo" />
-                    <img class="logo-light" src="{{asset('frontend/assets/img/logo-light.webp')}}" width="131" height="34" alt="Logo" />
-                    -->
-                    LOGO HERE
+                  <a href="{{url('/')}}">
+                    <img class="logo-main" src="{{asset('frontend/assets/img/logo.png')}}" width="131" height="34" alt="Logo" />
                   </a>
                 </div>
               </div>
@@ -64,11 +24,37 @@
                   <div class="shopping-search">
                     <button class="shopping-search-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch"><i class="pe-7s-search icon"></i></button>
                   </div>
+
+                  @if(Route::has('login'))
                   <div class="shopping-wishlist">
-                    <a class="shopping-wishlist-btn" href="shop-wishlist.html">
-                      <i class="pe-7s-like icon"></i>
+                    @auth
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          {{ Auth::user()->first_name }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="{{route('profile.show')}}">{{__('Profile')}}</a></li>
+                          <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                          </li>
+                        </ul>
+                    </div>
+                    @else
+                    <a class="shopping-wishlist-btn" href="{{route('register')}}">
+                        <i class="pe-7s-user icon"></i>
                     </a>
+                    @endauth
                   </div>
+                  @endif
+
                   <div class="shopping-cart">
                     <button class="shopping-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="offcanvasRightLabel">
                       <i class="pe-7s-shopbag icon"></i>

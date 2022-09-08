@@ -29,7 +29,7 @@
                     <div class="col-sm-6 col-md-6">
                       <div class="slider-thumb">
                         <div class="thumb scene">
-                          <span class="scene-layer" data-depth=".3"><img src="{{asset('frontend/assets/img/slider/slider-01.webp')}}" width="461" height="489" alt="Image-HasTech"></span>
+                          <span class="scene-layer" data-depth=".3"><img src="{{asset('frontend/assets/img/slider/slider-01.png')}}" width="461" height="489" alt="Image-HasTech"></span>
                         </div>
                         <div class="shape-group mousemove">
                           <div class="shape-group-one mousemove-layer" data-speed=".8" data-bg-img="{{asset('frontend/assets/img/shape/2.webp')}}"></div>
@@ -66,7 +66,7 @@
                     <div class="col-sm-6 col-md-6">
                       <div class="slider-thumb">
                         <div class="thumb scene">
-                          <span class="scene-layer" data-depth=".3"><img src="{{asset('frontend/assets/img/slider/slider-03.webp')}}" width="548" height="649" alt="Image-HasTech"></span>
+                          <span class="scene-layer" data-depth=".3"><img src="{{asset('frontend/assets/img/slider/slider-02.png')}}" width="548" height="649" alt="Image-HasTech"></span>
                         </div>
                         <div class="shape-group mousemove">
                           <div class="shape-group-one mousemove-layer" data-speed=".8" data-bg-img="{{asset('frontend/assets/img/shape/2.webp')}}"></div>
